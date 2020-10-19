@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BlockEffect, DamageEffect } from './models/carta';
+import { Character } from './models/character';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'slayTheSpire';
+  ngOnInit(){
+
+  }
 }
