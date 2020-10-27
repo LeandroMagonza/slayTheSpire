@@ -1,28 +1,5 @@
 import { Character } from './character';
 
-export class Card {
-  id: number;
-  name: string;
-  cost: number;
-  description: string;
-  location: CardLocation;
-  effect: Effect[];
-}
-export enum CardLocation {
-DECK = "enMazo",
-DISCARD = "enDescarte",
-HAND = "enMano",
-LIBRARY = "enBiblioteca",
-EXHAUSTED = "enBiblioteca",
-}
-
-export class Skill extends Card{
-}
-export class Attack extends Card{
-}
-export class Power extends Card{
-}
-
 export class Effect{
   public execute(target: Character[]) {
   }

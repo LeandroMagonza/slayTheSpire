@@ -5,6 +5,7 @@ import { Character } from '../models/character';
   providedIn: 'root'
 })
 export class PlayerService {
+  player: Character;
   playerTeam: Character[];
   enemyTeam:  Character[];
   constructor() {

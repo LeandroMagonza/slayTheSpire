@@ -5,7 +5,7 @@ export class Character{
   block: number;
   buffs: Buff[];
   debuff: Debuff[];
-  target: Character;
+  focus: Character;
 
   constructor(
     public maxHP: number,
