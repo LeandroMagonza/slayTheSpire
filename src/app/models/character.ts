@@ -1,10 +1,15 @@
-export class Character{
+import { Card } from './card';
 
+export class Character{
+  deck:     Card[] = [];
+  discard:  Card[] = [];
+  hand:     Card[] = [];
+  exhaust:  Card[] = [];
+  buffs:    Buff[] = [];
+  debuff: Debuff[] = [];
   currentHp: number;
   currentEnergy:number;
   block: number;
-  buffs: Buff[];
-  debuff: Debuff[];
   focus: Character;
 
   constructor(

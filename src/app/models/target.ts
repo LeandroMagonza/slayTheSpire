@@ -1,29 +1,30 @@
 import { Character } from './character';
 
 export class Target{
-  targets:Character[] = [];
+  targets: Character[] = [];
   public getTargets():Character[] {
     return this.targets;
   }
 }
 
-export class focusTarget implements Target{
-  targets: Character[];
+export class FocusTarget implements Target{
+  targets: Character[] = [];
   public getTargets(): Character[] {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
+    return this.targets;
     //return playerService.player.focus
   }
 }
 
-export class teamTarget implements Target{
-  targets: Character[];
+export class TeamTarget implements Target{
+  targets: Character[] = [];
   public getTargets(): Character[] {
     throw new Error('Method not implemented.');
     //return playerService.playerTeam
   }
 }
-export class alliesTarget implements Target{
-  targets: Character[];
+export class AlliesTarget implements Target{
+  targets: Character[] = [];
   public getTargets(): Character[] {
     throw new Error('Method not implemented.');
   }

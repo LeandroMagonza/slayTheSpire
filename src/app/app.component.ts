@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BlockEffect, DamageEffect } from './models/card';
+import { BlockEffect, DamageEffect } from './models/effect';
 import { Character } from './models/character';
 
 @Component({
@@ -10,6 +10,6 @@ import { Character } from './models/character';
 export class AppComponent {
   title = 'slayTheSpire';
   ngOnInit(){
-
+    
   }
 }
