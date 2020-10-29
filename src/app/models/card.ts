@@ -1,15 +1,20 @@
 import { Action } from './action';
 
 export class Card {
- 
-  constructor( 
+
+  constructor(
     public id: number,
     public name: string,
     public cost: number,
     public description: string,
-    public effect: Action[]
+    public actions: Action[]
     ){
 
+  }
+  executeCard(){
+    for(let action of this.actions){
+      action.executeAction();
+    }
   }
 }
 

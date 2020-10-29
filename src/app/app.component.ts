@@ -10,6 +10,6 @@ import { Character } from './models/character';
 export class AppComponent {
   title = 'slayTheSpire';
   ngOnInit(){
-    
+
   }
 }

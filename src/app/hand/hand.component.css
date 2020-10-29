@@ -1,3 +1,14 @@
-div {
+.container {
+  display: flex; /* or inline-flex */
+}
+.card {
   background-color: yellow;
+  border: solid 1px;
+  margin: 3px;
+}
+.cardTitle{
+  font-size: 2vw;
+}
+.targeted{
+  border:solid 5px;
 }

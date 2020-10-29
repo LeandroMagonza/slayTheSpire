@@ -1,0 +1,10 @@
+.container {
+  display: flex; /* or inline-flex */
+}
+.character{
+    border: solid 1px;
+    margin: 3px;
+}
+.targeted{
+  border:solid 5px;
+}

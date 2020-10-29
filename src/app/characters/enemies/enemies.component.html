@@ -1,0 +1,11 @@
+<div class="container">
+
+    <div class="col-lg-4 character enemy"
+    (click)="this.playerService.selectTarget(enemy)"
+    *ngFor="let enemy of playerService.enemyTeam"
+    [ngClass]="{'targeted' : playerService.player.focus == enemy}">
+      <div>{{enemy.name}}</div>
+      <div>{{enemy.currentHp}}/{{enemy.maxHP}}</div>
+    </div>
+
+</div>

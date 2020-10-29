@@ -1,0 +1,7 @@
+.container {
+  display: flex; /* or inline-flex */
+}
+
+.enemy {
+   background-color: orangered;
+ }

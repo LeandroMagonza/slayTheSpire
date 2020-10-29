@@ -1,0 +1,21 @@
+<div class="container">
+
+  <div class="col-lg-4 character player"
+  (click)="this.playerService.selectTarget(playerService.player)"
+  [ngClass]="{'targeted' : playerService.player.focus == playerService.player}">
+  <div>{{playerService.player.name}} - {{playerService.player.focus.name}}</div>
+  <div>({{playerService.player.currentEnergy}}/{{playerService.player.maxEnergy}})</div>
+  <div>{{playerService.player.currentHp}}/{{playerService.player.maxHP}} ({{playerService.player.block}})</div>
+
+  </div>
+  <div class="col-lg-4 character ally"
+  (click)="this.playerService.selectTarget(character)"
+  *ngFor="let character of playerService.allies"
+  [ngClass]="{'targeted' : playerService.player.focus == character}">
+    <div>{{character.name}}</div>
+    <div>({{character.currentEnergy}}/{{character.maxEnergy}})</div>
+    <div>{{character.currentHp}}/{{character.maxHP}} ({{character.block}})</div>
+
+  </div>
+
+</div>

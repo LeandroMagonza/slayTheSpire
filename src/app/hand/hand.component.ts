@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PlayerService } from '../player/player.service';
+import { PlayerService } from '../characters/player/player.service';
+
 
 @Component({
   selector: 'app-hand',
