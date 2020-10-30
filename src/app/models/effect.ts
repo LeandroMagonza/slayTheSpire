@@ -17,3 +17,9 @@ export class BlockEffect implements Effect{
     targets.forEach(target=> target.addBlock(this.block));
   }
 }
+export class DebuffEffect implements Effect{
+  constructor(public block: number){}
+  public executeEffect(targets: Character[]) {
+    targets.forEach(target=> target.addBlock(this.block));
+  }
+}

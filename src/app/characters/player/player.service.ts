@@ -23,7 +23,7 @@ export class PlayerService {
     this.enemyTeam = [JawWorm];
     this.player = leandro;
     this.player.focus = leandro;
-    this.selectedCard = leandro.hand[0];
+    this.player.selectedCard = leandro.hand[0];
     this.characters = [this.player];
     this.characters = this.characters.concat(this.allies);
     this.characters = this.characters.concat(this.enemyTeam);
@@ -35,16 +35,16 @@ export class PlayerService {
   }
   selectCard(card) {
     console.log(card);
-    this.selectedCard = card;
+    this.player.selectedCard = card;
   }
   playCard() {
-    if (this.selectedCard.cost <= this.player.currentEnergy) {
+    if (this.player.selectedCard.cost <= this.player.currentEnergy) {
 
-      this.player.currentEnergy -= this.selectedCard.cost;
-      this.selectedCard.executeCard();
-      this.player.discard.push(this.selectedCard);
-      this.player.hand.splice(this.player.hand.indexOf(this.selectedCard), 1);
-      this.selectedCard = this.player.hand[0];
+      this.player.currentEnergy -= this.player.selectedCard.cost;
+      this.player.selectedCard.executeCard();
+      this.player.discard.push(this.player.selectedCard);
+      this.player.hand.splice(this.player.hand.indexOf(this.player.selectedCard), 1);
+      this.player.selectedCard = this.player.hand[0];
     }
   }
 }

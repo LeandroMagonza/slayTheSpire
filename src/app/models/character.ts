@@ -1,6 +1,6 @@
 import { Card } from './card';
 import { shuffle,take, includes, merge } from 'lodash';
-import { strike } from '../libraries/libraryAttacks';
+import { bash, strike } from '../libraries/libraryAttacks';
 import { defend } from '../libraries/librarySkills';
 export class Character{
 
@@ -16,6 +16,7 @@ export class Character{
   currentEnergy:number;
   block: number;
   focus: Character;
+  selectedCard: Card = null;
 
   constructor(
     public maxHP: number,
@@ -29,9 +30,16 @@ export class Character{
       this.deck.push(strike(playerService));
       this.deck.push(strike(playerService));
       this.deck.push(strike(playerService));
+      this.deck.push(strike(playerService));
+      this.deck.push(strike(playerService));
+      this.deck.push(bash(playerService));
+      this.deck.push(defend(playerService));
+      this.deck.push(defend(playerService));
       this.deck.push(defend(playerService));
       this.deck.push(defend(playerService));
       this.deck = shuffle(this.deck);
+
+      this.drawCard(5);
   }
 
   reciveDamage(damage: number){
@@ -71,17 +79,29 @@ export class Character{
   }
 
   refillDeck(){
-    this.deck.push(...shuffle(this.discard))
+    this.deck.push(...shuffle(this.discard));
+    this.discard = [];
   }
 
   shuffleDeck(){
     this.deck = shuffle(this.deck);
   }
+  addBuff(){
+
+  }
+  addDebuff(){
+
+  }
 }
 
-
-export class Buff{
+export class Status{
+  description: string;
+  // effect
 }
-export class Debuff{
+export class Buff implements Status{
+  description: string;
+}
+export class Debuff implements Status{
+  description: string;
 }
 

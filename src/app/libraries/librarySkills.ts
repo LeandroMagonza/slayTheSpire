@@ -6,9 +6,9 @@ import { FocusTarget, SelfTarget } from "../models/target";
 
 export const defend = (playerService) => new Skill(
   2,
-  "difens",
+  "Defend",
   1,
-  "bloquea 5 man, re piola",
+  "Gain 5 block.",
   [new Action(
     new SelfTarget(playerService),
     new BlockEffect(5)
