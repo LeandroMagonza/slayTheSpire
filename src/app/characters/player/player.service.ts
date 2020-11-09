@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { strike } from 'src/app/libraries/libraryAttacks';
 import { defend } from 'src/app/libraries/librarySkills';
+import { Enemy } from 'src/app/models/Enemy';
 import { Card } from '../../models/card';
 import { Character } from '../../models/character';
 
@@ -12,13 +13,13 @@ export class PlayerService {
   turnNumber: number = 0;
   player: Character;
   allies: Character[];
+  playerTeam: Character[];
   enemyTeam: Character[];
   characters: Character[];
-  selectedCard: Card = null;
   constructor() {
     const leandro = new Character(100, 3, "Leandro",this);
     const lucas = new Character(100, 3, "Lucas",this);
-    const JawWorm = new Character(12, 1, "Jaw Worm",this);
+    const JawWorm = new Enemy(12, 1, "Jaw Worm",this);
     this.allies = [lucas];
     this.enemyTeam = [JawWorm];
     this.player = leandro;
@@ -26,12 +27,15 @@ export class PlayerService {
     this.player.selectedCard = leandro.hand[0];
     this.characters = [this.player];
     this.characters = this.characters.concat(this.allies);
+    this.playerTeam = [this.player];
+    this.playerTeam = this.characters.concat(this.allies);
     this.characters = this.characters.concat(this.enemyTeam);
+    this.startTurn();
 
   }
-  selectTarget(target) {
+  setPlayerFocus(target) {
     // console.log(target);
-    this.player.focus = target;
+    this.player.setFocus(target);
   }
   selectCard(card) {
     console.log(card);
@@ -46,6 +50,17 @@ export class PlayerService {
       this.player.hand.splice(this.player.hand.indexOf(this.player.selectedCard), 1);
       this.player.selectedCard = this.player.hand[0];
     }
+  }
+
+  endTurn(){
+    this.characters.forEach(character => character.endTurn());
+    this.startTurn();
+
+  }
+
+  startTurn(){
+    this.characters.forEach(character => character.startTurn());
+    this.turnNumber++;
   }
 }
 

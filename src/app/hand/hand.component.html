@@ -1,8 +1,9 @@
+{{this.playerService.player.getCurrentDeckSize()}}/{{this.playerService.player.getCurrentDiscardSize()}}
 <div class="container">
   <div class="col-lg-2 card"
   *ngFor="let card of playerService.player.hand"
   (click)="this.playerService.selectCard(card)"
-  [ngClass]="{'targeted' : playerService.selectedCard == card}">
+  [ngClass]="{'targeted' : playerService.player.selectedCard == card}">
     <div class="cardTitle">{{card.name}} ({{card.cost}})</div>
     <p>{{card.description}}</p>
 

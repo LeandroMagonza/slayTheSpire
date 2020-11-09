@@ -21,6 +21,9 @@ export class PlayerComponent implements OnInit {
     if (event.key == " ") {
       this.playerService.playCard();
     }
+    if (event.key == "e") {
+      this.playerService.endTurn();
+    }
   }
 
 }

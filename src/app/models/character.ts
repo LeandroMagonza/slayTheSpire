@@ -2,6 +2,8 @@ import { Card } from './card';
 import { shuffle,take, includes, merge } from 'lodash';
 import { bash, strike } from '../libraries/libraryAttacks';
 import { defend } from '../libraries/librarySkills';
+import { Buff } from './Buff';
+import { PlayerService } from '../characters/player/player.service';
 export class Character{
 
   deck:     Card[] = [];
@@ -9,7 +11,6 @@ export class Character{
   hand:     Card[] = [];
   exhaust:  Card[] = [];
   buffs:    Buff[] = [];
-  debuff: Debuff[] = [];
   handRefill: number = 5;
   // maxHandSize:number;
   currentHp: number;
@@ -17,15 +18,13 @@ export class Character{
   block: number;
   focus: Character;
   selectedCard: Card = null;
-
-  constructor(
+    constructor(
     public maxHP: number,
     public maxEnergy: number,
     public name: string,
-    playerService
+    public playerService: PlayerService
     ){
       this.currentHp = maxHP;
-      this.currentEnergy = maxEnergy;
       this.block = 0;
       this.deck.push(strike(playerService));
       this.deck.push(strike(playerService));
@@ -38,8 +37,6 @@ export class Character{
       this.deck.push(defend(playerService));
       this.deck.push(defend(playerService));
       this.deck = shuffle(this.deck);
-
-      this.drawCard(5);
   }
 
   reciveDamage(damage: number){
@@ -67,6 +64,7 @@ export class Character{
 
   startTurn(){
     this.drawCard(this.handRefill);
+    this.refillEnergy();
   }
 
   drawCard(amount){
@@ -92,16 +90,22 @@ export class Character{
   addDebuff(){
 
   }
+
+  setFocus(newFocus: Character){
+    this.focus = newFocus;
+  }
+
+  refillEnergy(){
+    this.currentEnergy = this.maxEnergy;
+  }
+  getCurrentDeckSize(){
+    return this.deck.length;
+  }
+  getCurrentDiscardSize(){
+    return this.discard.length;
+  }
 }
 
-export class Status{
-  description: string;
-  // effect
-}
-export class Buff implements Status{
-  description: string;
-}
-export class Debuff implements Status{
-  description: string;
-}
+
+
 
