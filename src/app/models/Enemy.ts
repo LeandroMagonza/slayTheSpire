@@ -41,6 +41,16 @@ constructor(
     this.deck = shuffle(this.deck);
 }
 
+playCard() {
+  if (this.selectedCard.cost <= this.currentEnergy) {
+    this.currentEnergy -= this.selectedCard.cost;
+    this.selectedCard.executeCard(this);
+    this.discard.push(this.selectedCard);
+    this.hand.splice(this.hand.indexOf(this.selectedCard), 1);
+    this.selectedCard = this.hand[0];
+  }
+}
+
 reciveDamage(damage: number){
   if (this.block>damage) {
     this.block -= damage;
@@ -61,6 +71,7 @@ discardHand(){
 }
 
 endTurn(){
+  this.playCard();
   this.discardHand();
 }
 

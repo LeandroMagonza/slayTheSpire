@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { strike } from 'src/app/libraries/libraryAttacks';
 import { defend } from 'src/app/libraries/librarySkills';
 import { Enemy } from 'src/app/models/Enemy';
-import { Card } from '../../models/card';
 import { Character } from '../../models/character';
 
 @Injectable({
@@ -42,14 +41,7 @@ export class PlayerService {
     this.player.selectedCard = card;
   }
   playCard() {
-    if (this.player.selectedCard.cost <= this.player.currentEnergy) {
-
-      this.player.currentEnergy -= this.player.selectedCard.cost;
-      this.player.selectedCard.executeCard();
-      this.player.discard.push(this.player.selectedCard);
-      this.player.hand.splice(this.player.hand.indexOf(this.player.selectedCard), 1);
-      this.player.selectedCard = this.player.hand[0];
-    }
+    this.player.playCard();
   }
 
   endTurn(){

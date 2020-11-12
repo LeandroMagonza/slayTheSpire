@@ -1,4 +1,5 @@
 import { Action } from './action';
+import { Character } from './character';
 
 export class Card {
 
@@ -11,9 +12,9 @@ export class Card {
     ){
 
   }
-  executeCard(){
+  executeCard(player: Character){
     for(let action of this.actions){
-      action.executeAction();
+      action.executeAction(player);
     }
   }
 }

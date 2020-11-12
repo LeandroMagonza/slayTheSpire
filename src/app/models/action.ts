@@ -1,3 +1,4 @@
+import { Character } from './character';
 import { Effect } from './effect';
 import { Target } from './target';
 
@@ -9,8 +10,8 @@ export class Action{
       ){
 
     }
-    public executeAction() {
-      this.effect.executeEffect(this.target.getTargets())
+    public executeAction(player: Character) {
+      this.effect.executeEffect(this.target.getTargets(player))
     }
 
   }
