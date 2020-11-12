@@ -22,7 +22,7 @@ export class PlayerService {
     this.allies = [lucas];
     this.enemyTeam = [JawWorm];
     this.player = leandro;
-    this.player.focus = leandro;
+    this.player.focus = JawWorm;
     this.player.selectedCard = leandro.hand[0];
     this.characters = [this.player];
     this.characters = this.characters.concat(this.allies);

@@ -64,6 +64,7 @@ export class Character{
 
   startTurn(){
     this.drawCard(this.handRefill);
+    this.selectedCard = this.hand[0];
     this.refillEnergy();
   }
 
