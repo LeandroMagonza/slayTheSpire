@@ -19,7 +19,7 @@ export const strike = (playerService) => new Attack(
 export const bash = (playerService) => new Attack(
   3,
   "Bash",
-  1,
+  2,
   "Deal 8 damage. Apply 2 Vulnerable.",
   [
     new Action(
@@ -28,7 +28,7 @@ export const bash = (playerService) => new Attack(
     ),
     new Action(
       new FocusTarget(playerService),
-      new DamageEffect(8)
+      new DamageEffect(0)
     )
   ]
 );

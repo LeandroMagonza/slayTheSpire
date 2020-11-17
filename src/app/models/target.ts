@@ -27,6 +27,19 @@ export class SelfTarget implements Target{
     return [player];
   }
 }
+export class FocusAllyOrSelfTarget implements Target{
+  targets: Character[] = [];
+  constructor(public playerService: PlayerService){
+  }
+  public getTargets(player: Character): Character[] {
+    if (this.playerService.areSameTeam(player,player.focus)) {
+      return [player.focus];
+    }
+    else{
+      return [player];
+    }
+  }
+}
 
 export class TeamTarget implements Target{
   targets: Character[] = [];

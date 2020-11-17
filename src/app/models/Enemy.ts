@@ -1,8 +1,8 @@
 import { Card } from './card';
-import { Buff } from './Buff';
+import { Buff } from './buff';
 import { Character } from './character';
 import { shuffle,take, includes, merge,sample } from 'lodash';
-import { bash, strike } from '../libraries/libraryAttacks';
+import { bash, chomp, strike } from '../libraries/libraryAttacks';
 import { defend } from '../libraries/librarySkills';
 import { PlayerService } from '../characters/player/player.service';
 
@@ -28,15 +28,10 @@ constructor(
   ){
     this.currentHp = maxHP;
     this.block = 0;
-    this.deck.push(strike(playerService));
-    this.deck.push(strike(playerService));
-    this.deck.push(strike(playerService));
-    this.deck.push(strike(playerService));
-    this.deck.push(strike(playerService));
-    this.deck.push(bash(playerService));
-    this.deck.push(defend(playerService));
-    this.deck.push(defend(playerService));
-    this.deck.push(defend(playerService));
+    this.deck.push(chomp(playerService));
+    this.deck.push(chomp(playerService));
+    this.deck.push(chomp(playerService));
+    this.deck.push(chomp(playerService));
     this.deck.push(defend(playerService));
     this.deck = shuffle(this.deck);
 }

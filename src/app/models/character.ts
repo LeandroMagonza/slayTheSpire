@@ -2,7 +2,7 @@ import { Card } from './card';
 import { shuffle,take, includes, merge } from 'lodash';
 import { bash, strike } from '../libraries/libraryAttacks';
 import { defend } from '../libraries/librarySkills';
-import { Buff } from './Buff';
+import { Buff } from './buff';
 import { PlayerService } from '../characters/player/player.service';
 export class Character{
 
@@ -63,6 +63,7 @@ export class Character{
   }
 
   startTurn(){
+    this.block = 0;
     this.drawCard(this.handRefill);
     this.selectedCard = this.hand[0];
     this.refillEnergy();

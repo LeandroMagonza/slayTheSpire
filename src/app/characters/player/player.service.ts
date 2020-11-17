@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { strike } from 'src/app/libraries/libraryAttacks';
 import { defend } from 'src/app/libraries/librarySkills';
-import { Enemy } from 'src/app/models/Enemy';
+import { Enemy } from 'src/app/models/enemy';
 import { Character } from '../../models/character';
 
 @Injectable({
@@ -53,6 +53,19 @@ export class PlayerService {
   startTurn(){
     this.characters.forEach(character => character.startTurn());
     this.turnNumber++;
+  }
+
+   areSameTeam(playerA: Character,playerB: Character): Boolean{
+    if (this.playerTeam.includes(playerA) && this.playerTeam.includes(playerB)) {
+      return true;
+    }
+    else if (this.enemyTeam.includes(playerA) && this.enemyTeam.includes(playerB)) {
+      return true;
+    }
+    else 
+    {
+      return false;
+    }
   }
 }
 
