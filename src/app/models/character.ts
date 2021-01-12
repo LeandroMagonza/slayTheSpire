@@ -4,6 +4,7 @@ import { bash, strike } from '../libraries/libraryAttacks';
 import { defend } from '../libraries/librarySkills';
 import { Buff } from './buff';
 import { PlayerService } from '../characters/player/player.service';
+import { Resource } from './resource';
 export class Character{
 
   deck:     Card[] = [];
@@ -13,6 +14,7 @@ export class Character{
   buffs:    Buff[] = [];
   handRefill: number = 5;
   // maxHandSize:number;
+  resource: Resource;
   currentHp: number;
   currentEnergy:number;
   block: number;
